@@ -15,7 +15,7 @@ switch (a) {
     alert("Нет таких значений");
 }
 
-//
+// проверка на равенство всегда строгая
 let arg = prompt("Введите число?");
 switch (arg) {
   case "0":
@@ -48,3 +48,16 @@ switch (browser) {
     alert("We hope that this page looks ok!");
 }
 //SAME AS ABOVE:
+let browser = prompt( "write your browser");
+if (browser == "Edge") {
+  alert("You've got the Edge!");
+} else if (
+  browser == "Chrome" ||
+  browser == "Firefox" ||
+  browser == "Safari" ||
+  browser == "Opera"
+) {
+  alert("Okay we support these browsers too");
+} else {
+  alert("We hope that this page looks ok!");
+}

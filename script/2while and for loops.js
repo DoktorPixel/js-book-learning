@@ -119,8 +119,7 @@ while (i++ < 5) alert(i); //  1 , 2 , 3 , 4 , 5
 for (let i = 0; i < 5; ++i) alert(i); // 0, 1 , 2 , 3 , 4
 for (let i = 0; i < 5; i++) alert(i); // 0, 1 , 2 , 3 , 4
 
-//
-
+// четные числа:
 for (let i = 2; i <= 10; i++) {
   if (i % 2 !== 0) continue;
   alert(i);
@@ -149,8 +148,9 @@ do {
   num = prompt("Введите число, большее 100?", 0);
 } while (num <= 100 && num);
 
-//
 
+
+// Вывести простые числа
 let n = 10;
 nextPrime: for (let i = 2; i <= n; i++) {
   // Для всех i...

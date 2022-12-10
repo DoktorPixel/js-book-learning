@@ -1,10 +1,15 @@
 console.log("It is a test page");
 
-function namber(a:Namber) {
-let namber = [2, 5, 7, 9 , 11 , 1 , 12 , 15, 3 , 4 , 14 , 6 , 8 , 10 , 13 ];
-for (let i = 1; i <= 15; i++) (
-
-)
-return false
-
+let browser = prompt( "write your browser");
+if (browser == "Edge") {
+  alert("You've got the Edge!");
+} else if (
+  browser == "Chrome" ||
+  browser == "Firefox" ||
+  browser == "Safari" ||
+  browser == "Opera"
+) {
+  alert("Okay we support these browsers too");
+} else {
+  alert("We hope that this page looks ok!");
 }
