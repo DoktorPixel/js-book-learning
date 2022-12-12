@@ -140,6 +140,83 @@ alert(doNothing() === undefined); // true
 //
 return some + long + expression + or + whatever * f(a) + f(b); // Если мы хотим, чтобы возвращаемое выражение занимало несколько строк, нужно начать его на той же строке, что и return . Или, хотя бы, поставить там открывающую скобку
 
+//Например, сравним ниже две функции showPrimes(n) . Каждая из них выводит простое число до n
+function showPrimes(n) {
+  nextPrime: for (let i = 2; i < n; i++) {
+    for (let j = 2; j < i; j++) {
+      if (i % j == 0) continue nextPrime;
+    }
+    alert(i); // простое
+  }
+}
+//SAME AS ABOVE:
+function showPrimes(n) {
+  for (let i = 2; i < n; i++) {
+    if (!isPrime(i)) continue;
+    alert(i); // простое
+  }
+}
+function isPrime(n) {
+  for (let i = 2; i < n; i++) {
+    if (n % i == 0) return false;
+  }
+  return true;
+}
+
 //
 
-99;
+function checkAge(age) {
+  if (age > 18) {
+    return true;
+  } else {
+    return confirm("Родители разрешили?");
+  }
+}
+//SAME AS ABOVE:
+function checkAge(age) {
+  return age > 18 ? true : confirm("Родители разрешили?");
+}
+//SAME AS ABOVE:
+function checkAge(age) {
+  return age > 18 || confirm("Родители разрешили?");
+}
+
+// Напишите функцию min(a,b) , которая возвращает меньшее из чисел a и b:
+min(2, 5) == 2;
+min(3, -1) == -1;
+min(1, 1) == 1;
+function min(a, b) {
+  if (a < b) {
+    return a;
+  } else {
+    return b;
+  }
+}
+//SAME AS ABOVE:
+function min(a, b) {
+  return a < b ? a : b;
+}
+//P.S. В случае равенства a == b не имеет значения, что возвращать.
+
+// Условие:
+// pow(3, 2) = 3 * 3 = 9
+// pow(3, 3) = 3 * 3 * 3 = 27
+// pow(1, 100) = 1 * 1 * ...* 1 = 1
+function pow(x, n) {
+  let result = x;
+  for (let i = 1; i < n; i++) {
+    result *= x;
+  }
+  return result;
+}
+let x = prompt("x?", "");
+let n = prompt("n?", "");
+if (n < 1) {
+  alert(`Степень ${n} не поддерживается, используйте натуральное число`);
+} else {
+  alert(pow(x, n));
+}
+
+//
+
+104;
