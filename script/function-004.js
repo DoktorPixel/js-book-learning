@@ -217,6 +217,75 @@ if (n < 1) {
   alert(pow(x, n));
 }
 
-//
+// Function Declaration (Объявление Функции):
+function sayHi() {
+  alert("Привет");
+}
+//SAME AS ABOVE: Function Expression (Функциональное Выражение):
+let sayHi = function () {
+  alert("Привет");
+};
+//  Смысл обоих примеров кода одинаков: "создать функцию и поместить её значение в переменную sayHi ".
 
-104;
+//  Функции-«колбэки» ask(question, yes, no)
+
+function ask(question, yes, no) {
+  if (confirm(question)) yes();
+  else no();
+}
+function showOk() {
+  alert("Вы согласны.");
+}
+function showCancel() {
+  alert("Вы отменили выполнение.");
+}
+// использование: функции showOk, showCancel передаются в качестве аргументов ask
+ask("Вы согласны?", showOk, showCancel);
+//SAME AS ABOVE:
+function ask(question, yes, no) {
+  if (confirm(question)) yes();
+  else no();
+}
+ask(
+  "Вы согласны?",
+  function () {
+    alert("Вы согласились.");
+  },
+  function () {
+    alert("Вы отменили выполнение.");
+  }
+);
+
+// Function Declaration
+function sum(a, b) {
+  return a + b;
+}
+//SAME AS ABOVE:
+// Function Expression
+let sum = function (a, b) {
+  return a + b;
+};
+
+// it works:
+sayHi("Вася"); // Привет, Вася
+function sayHi(name) {
+  alert(`Привет, ${name}`);
+}
+// and it doesn't work:
+sayHi("Вася"); // ошибка!
+let sayHi = function (name) {
+  // (*) магии больше нет
+  alert(`Привет, ${name}`);
+};
+
+//
+let age = prompt("Сколько Вам лет?", 18);
+let welcome =
+  age < 18
+    ? function () {
+        alert("Привет!");
+      }
+    : function () {
+        alert("Здравствуйте!");
+      };
+welcome(); // теперь всё в порядке
