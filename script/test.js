@@ -1,17 +1,12 @@
 console.log("It is a test page");
 
-let calculator = {
-  sum() {
-    return this.a + this.b;
-  },
-  mul() {
-    return this.a * this.b;
-  },
-  read() {
-    this.a = +prompt("a?", 0);
-    this.b = +prompt("b?, 0");
-  },
-};
-calculator.read();
-alert(calculator.sum());
-alert(calculator.mul());
+function Accumulator(startingValue) {
+  this.value = startingValue;
+  this.read = function () {
+    this.value += +prompt("Сколько нужно добавить?", 0);
+  };
+}
+let accumulator = new Accumulator(1);
+accumulator.read();
+accumulator.read();
+alert(accumulator.value);
