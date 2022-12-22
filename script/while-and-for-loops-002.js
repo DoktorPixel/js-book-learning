@@ -148,8 +148,6 @@ do {
   num = prompt("Введите число, большее 100?", 0);
 } while (num <= 100 && num);
 
-
-
 // Вывести простые числа
 let n = 10;
 nextPrime: for (let i = 2; i <= n; i++) {
