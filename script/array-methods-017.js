@@ -432,3 +432,63 @@ usersMapped = [
 */
 alert(usersMapped[0].id); // 1
 alert(usersMapped[0].fullName); // Вася Пупкин
+
+// Отсортировать пользователей по возрасту
+function sortByAge(arr) {
+  arr.sort((a, b) => (a.age > b.age ? 1 : -1));
+}
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 28 };
+let arr = [vasya, petya, masha];
+sortByAge(arr);
+// теперь отсортировано: [vasya, masha, petya]
+alert(arr[0].name); // Вася
+alert(arr[1].name); // Маша
+alert(arr[2].name); // Петя
+
+//Перемешайте массив
+// Простым решением может быть:
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+let arr = [1, 2, 3];
+shuffle(arr);
+alert(arr);
+//Есть и другие хорошие способы решить эту задачу. Например
+// алгоритм под названием Тасование Фишера — Йетса
+
+// Получить средний возраст
+function getAverageAge(users) {
+  return users.reduce((prev, user) => prev + user.age, 0) / users.length;
+}
+let vasya = { name: "Вася", age: 25 };
+let petya = { name: "Петя", age: 30 };
+let masha = { name: "Маша", age: 29 };
+let arr = [vasya, petya, masha];
+alert(getAverageAge(arr)); // 28
+
+// Оставить уникальные элементы массива
+function unique(arr) {
+  let result = [];
+  for (let str of arr) {
+    if (!result.includes(str)) {
+      result.push(str);
+    }
+  }
+  return result;
+}
+let strings = [
+  "кришна",
+  "кришна",
+  "харе",
+  "харе",
+  "харе",
+  "харе",
+  "кришна",
+  "кришна",
+  ":-O",
+];
+alert(unique(strings)); // кришна, харе, :-O
+// данное решение подходит только для небольших массивов,
+// Далее в главе Map и Set мы увидим, как его оптимизировать.
